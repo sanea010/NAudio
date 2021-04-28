@@ -57,5 +57,7 @@
     <Content Include="Resources\Open.png" />
     <None Include="Resources\Unmute.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
+  </ItemGroup>
 </Project>

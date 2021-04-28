@@ -14,6 +14,7 @@ namespace NAudioDemo.NetworkChatDemo
         private volatile bool connected;
         private NetworkAudioPlayer player;
         private NetworkAudioSender audioSender;
+        private AES256 aes;
 
         public NetworkChatPanel()
         {
@@ -99,8 +100,10 @@ namespace NAudioDemo.NetworkChatDemo
                 ? (IAudioSender)new UdpAudioSender(endPoint)
                 : new TcpAudioSender(endPoint);
 
-            player = new NetworkAudioPlayer(codec, receiver);
-            audioSender = new NetworkAudioSender(codec, inputDeviceNumber, sender);
+            aes = new AES256();
+
+            player = new NetworkAudioPlayer(codec, receiver, aes);
+            audioSender = new NetworkAudioSender(codec, inputDeviceNumber, sender, aes);
             connected = true;
         }
 
