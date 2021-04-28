@@ -13,7 +13,8 @@ namespace NAudioDemo.NetworkChatDemo
 
         public UdpAudioReceiver(int portNumber)
         {
-            var endPoint = new IPEndPoint(IPAddress.Loopback, portNumber);
+            //var endPoint = new IPEndPoint(IPAddress.Loopback, portNumber);
+            var endPoint = new IPEndPoint(IPAddress.Parse("192.168.0.15"), 7090);
 
             udpListener = new UdpClient();
 
